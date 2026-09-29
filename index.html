@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration & Result Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">S</span><div><strong>Student Portal</strong><small>Registration & Results</small></div></div>
+    <span class="top-label">STUDENT SERVICES</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">STUDENT SERVICES</p>
+        <h1>Registration &<br><span>Result Portal</span></h1>
+        <p class="hero-copy">Register your details, enter your subject marks, and view your result in one place.</p>
+      </div>
+      <div class="hero-icon" aria-hidden="true">🎓</div>
+    </section>
+
+    <form id="studentForm">
+      <section class="panel">
+        <div class="section-heading"><span class="step">01</span><div><h2>Student Information</h2><p>Enter your personal and academic details.</p></div></div>
+        <div class="form-grid">
+          <label>Full Name <span class="required">*</span>
+            <input type="text" id="fullName" placeholder="e.g. Lavanya M" required minlength="2" pattern="[A-Za-z .'-]{2,}" title="Use letters and spaces only.">
+          </label>
+          <label>Register Number <span class="required">*</span>
+            <input type="text" id="regNo" placeholder="e.g. 24CS001" required pattern="[A-Za-z0-9-]{3,20}" title="Enter 3–20 letters, numbers, or hyphens.">
+          </label>
+          <label>Email Address <span class="required">*</span>
+            <input type="email" id="email" placeholder="you@example.com" required>
+          </label>
+          <label>Phone Number
+            <input type="tel" id="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" title="Enter a 10-digit phone number.">
+          </label>
+          <label>Course <span class="required">*</span>
+            <select id="course" required>
+              <option value="">Select your course</option>
+              <option>B.E. Computer Science and Engineering</option>
+              <option>B.E. Electronics and Communication Engineering</option>
+              <option>B.E. Electrical and Electronics Engineering</option>
+              <option>B.Tech. Information Technology</option>
+              <option>B.Tech. Artificial Intelligence and Data Science</option>
+              <option>B.E. Mechanical Engineering</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Year of Study <span class="required">*</span>
+            <select id="year" required>
+              <option value="">Select year</option>
+              <option>1st Year</option><option>2nd Year</option>
+              <option>3rd Year</option><option>4th Year</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading"><span class="step">02</span><div><h2>Examination Marks</h2><p>Enter marks from 0 to 100 for each subject.</p></div></div>
+        <div class="marks-grid">
+          <label>Subject 1 <input type="text" id="sub1" value="Programming in Python" required></label>
+          <label>Marks <input type="number" id="mark1" min="0" max="100" placeholder="0–100" required></label>
+          <label>Subject 2 <input type="text" id="sub2" value="Data Structures" required></label>
+          <label>Marks <input type="number" id="mark2" min="0" max="100" placeholder="0–100" required></label>
+          <label>Subject 3 <input type="text" id="sub3" value="Computer Networks" required></label>
+          <label>Marks <input type="number" id="mark3" min="0" max="100" placeholder="0–100" required></label>
+          <label>Subject 4 <input type="text" id="sub4" value="Web Technology" required></label>
+          <label>Marks <input type="number" id="mark4" min="0" max="100" placeholder="0–100" required></label>
+          <label>Subject 5 <input type="text" id="sub5" value="Database Management Systems" required></label>
+          <label>Marks <input type="number" id="mark5" min="0" max="100" placeholder="0–100" required></label>
+        </div>
+        <p class="hint">Pass mark: 40 per subject. All marks must be between 0 and 100.</p>
+      </section>
+
+      <div class="actions">
+        <button type="reset" class="btn btn-secondary">Clear Form</button>
+        <button type="submit" class="btn btn-primary">Submit & View Result <span aria-hidden="true">→</span></button>
+      </div>
+    </form>
+
+    <section id="resultSection" class="panel result-panel" hidden aria-live="polite">
+      <div class="result-head">
+        <div><p class="eyebrow">SUBMISSION SUMMARY</p><h2>Student Result</h2></div>
+        <span id="statusBadge" class="status-badge">RESULT</span>
+      </div>
+      <div id="studentSummary" class="summary-grid"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Subject</th><th>Marks (100)</th><th>Status</th></tr></thead>
+          <tbody id="resultRows"></tbody>
+        </table>
+      </div>
+      <div class="stats-grid">
+        <div class="stat"><span>Total Marks</span><strong id="totalMarks">0 / 500</strong></div>
+        <div class="stat"><span>Percentage</span><strong id="percentage">0%</strong></div>
+        <div class="stat"><span>Overall Result</span><strong id="overallResult">—</strong></div>
+      </div>
+      <button type="button" class="btn btn-secondary print-btn" onclick="window.print()">Print Result</button>
+    </section>
+    <footer>Student Registration & Result Portal <span>•</span> Front-End Mini Project</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
